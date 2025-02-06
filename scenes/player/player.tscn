@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cij1prqjgcjf3"]
+
+[ext_resource type="Texture2D" uid="uid://dxnnd7q3ti5ik" path="res://assets/sprites/03-Pig/Idle (34x28).png" id="1_ciqyd"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gmdyt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8afl0"]
+atlas = ExtResource("1_ciqyd")
+region = Rect2(8, 8, 24, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5qlk"]
+radius = 11.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gmdyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_8afl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a5qlk")
