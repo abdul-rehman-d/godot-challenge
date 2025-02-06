@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yrbncu3bu7y6"]
+
+[ext_resource type="Texture2D" uid="uid://ddhi3buwcvuub" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="1_sm6ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6aj1"]
+atlas = ExtResource("1_sm6ud")
+region = Rect2(512, 128, 64, 64)
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_e6aj1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
