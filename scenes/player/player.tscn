@@ -208,6 +208,8 @@ scale_max = 3.0
 alpha_curve = SubResource("CurveTexture_10kby")
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_gmdyt")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

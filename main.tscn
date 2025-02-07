@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://yrbncu3bu7y6"]
+[gd_scene load_steps=7 format=4 uid="uid://yrbncu3bu7y6"]
 
 [ext_resource type="Texture2D" uid="uid://ddhi3buwcvuub" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="1_sm6ud"]
 [ext_resource type="PackedScene" uid="uid://cij1prqjgcjf3" path="res://scenes/player/player.tscn" id="2_177vh"]
+[ext_resource type="PackedScene" uid="uid://kvi4djl1fik7" path="res://scenes/slowdown/slow_down.tscn" id="3_vbrni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rd7pl"]
 texture = ExtResource("1_sm6ud")
@@ -406,3 +407,7 @@ shape = SubResource("RectangleShape2D_xsa15")
 
 [node name="Player" parent="." instance=ExtResource("2_177vh")]
 metadata/_edit_lock_ = true
+
+[node name="SlowDown" parent="." instance=ExtResource("3_vbrni")]
+position = Vector2(-106, 3)
+scale = Vector2(1.5, 1.5)
