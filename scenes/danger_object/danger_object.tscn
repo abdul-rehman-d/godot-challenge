@@ -43,6 +43,8 @@ animations = [{
 radius = 8.0
 
 [node name="DangerObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_qqwpc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -50,7 +52,17 @@ position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_sbrfn")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.621832
+frame_progress = 0.430427
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a2sqh")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_a2sqh")
+debug_color = Color(0.60326, 0.524821, 0.384175, 0.42)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

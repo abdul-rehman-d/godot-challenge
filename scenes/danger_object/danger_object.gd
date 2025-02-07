@@ -25,3 +25,7 @@ func _process(delta: float) -> void:
 			reverse = true
 	
 	global_position = global_position.move_toward(target, speed * delta)
+
+
+func _on_hitbox_body_entered(_body: Node2D) -> void:
+	get_tree().call_deferred("reload_current_scene")

@@ -515,17 +515,15 @@ shape = SubResource("RectangleShape2D_6mjoi")
 one_way_collision = true
 
 [node name="Danger" type="Node2D" parent="Level"]
+position = Vector2(102, -28)
 
 [node name="DangerObject" parent="Level/Danger" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
-position = Vector2(-105, 10)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
 [node name="Begin" type="Marker2D" parent="Level/Danger"]
-position = Vector2(-105, 10)
 
 [node name="End" type="Marker2D" parent="Level/Danger"]
-position = Vector2(0, 10)
+position = Vector2(83, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_177vh")]
-metadata/_edit_lock_ = true
