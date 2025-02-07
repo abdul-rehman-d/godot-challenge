@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bp23jbpaev1sv"]
+[gd_scene load_steps=18 format=3 uid="uid://bp23jbpaev1sv"]
 
 [ext_resource type="Texture2D" uid="uid://e8qtep5s8wfl" path="res://assets/sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="1_syj6f"]
 [ext_resource type="Script" path="res://scenes/power_up/power_up.gd" id="1_uuf3v"]
-[ext_resource type="Texture2D" uid="uid://c8a0bx5mse1f1" path="res://assets/sprites/12-Live and Coins/Big Diamond Hit (18x14).png" id="2_rofpw"]
 
 [sub_resource type="Animation" id="Animation_2rcy4"]
 length = 0.001
@@ -40,14 +39,6 @@ _data = {
 "RESET": SubResource("Animation_2rcy4"),
 "idle": SubResource("Animation_qbvui")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4mqf"]
-atlas = ExtResource("2_rofpw")
-region = Rect2(0, 0, 18, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2u4a"]
-atlas = ExtResource("2_rofpw")
-region = Rect2(18, 0, 18, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_284w6"]
 atlas = ExtResource("1_syj6f")
@@ -91,17 +82,6 @@ region = Rect2(162, 0, 18, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhu80"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m4mqf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i2u4a")
-}],
-"loop": false,
-"name": &"hit",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_284w6")

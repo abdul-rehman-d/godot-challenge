@@ -523,7 +523,7 @@ one_way_collision = true
 position = Vector2(102, -28)
 
 [node name="DangerObject" parent="Level/Dangers/Danger" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
-position = Vector2(9.47701, 0)
+position = Vector2(54.7145, 0)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
@@ -536,7 +536,7 @@ position = Vector2(83, 0)
 position = Vector2(26, 37)
 
 [node name="DangerObject" parent="Level/Dangers/Danger2" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
-position = Vector2(33.0009, 0)
+position = Vector2(28.603, 0)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
