@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8h1ph6wm24va"]
+
+[ext_resource type="Texture2D" uid="uid://cdp1vvgx0dufq" path="res://assets/sprites/09-Bomb/Bomb On (52x56).png" id="1_a0gbv"]
+[ext_resource type="Script" path="res://scenes/danger_object/danger_object.gd" id="1_qqwpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7jkp"]
+atlas = ExtResource("1_a0gbv")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfo8q"]
+atlas = ExtResource("1_a0gbv")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrgci"]
+atlas = ExtResource("1_a0gbv")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogpsj"]
+atlas = ExtResource("1_a0gbv")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbrfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7jkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfo8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrgci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogpsj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2sqh"]
+radius = 8.0
+
+[node name="DangerObject" type="StaticBody2D"]
+script = ExtResource("1_qqwpc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_sbrfn")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.621832
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a2sqh")
