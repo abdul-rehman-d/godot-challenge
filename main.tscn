@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://yrbncu3bu7y6"]
+[gd_scene load_steps=16 format=4 uid="uid://yrbncu3bu7y6"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_7ng31"]
 [ext_resource type="Texture2D" uid="uid://ddhi3buwcvuub" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="1_sm6ud"]
 [ext_resource type="PackedScene" uid="uid://cij1prqjgcjf3" path="res://scenes/player/player.tscn" id="2_177vh"]
 [ext_resource type="Texture2D" uid="uid://cbwii1jnv4og" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="3_trw4k"]
 [ext_resource type="PackedScene" uid="uid://kvi4djl1fik7" path="res://scenes/slowdown/slow_down.tscn" id="3_vbrni"]
 [ext_resource type="PackedScene" uid="uid://c8h1ph6wm24va" path="res://scenes/danger_object/danger_object.tscn" id="4_kueqr"]
+[ext_resource type="PackedScene" uid="uid://bp23jbpaev1sv" path="res://scenes/power_up/power_up.tscn" id="5_wqrsc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rd7pl"]
 texture = ExtResource("1_sm6ud")
@@ -466,6 +468,7 @@ size = Vector2(92, 14)
 size = Vector2(28, 14)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_7ng31")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -514,16 +517,45 @@ position = Vector2(48, -41)
 shape = SubResource("RectangleShape2D_6mjoi")
 one_way_collision = true
 
-[node name="Danger" type="Node2D" parent="Level"]
+[node name="Dangers" type="Node2D" parent="Level"]
+
+[node name="Danger" type="Node2D" parent="Level/Dangers"]
 position = Vector2(102, -28)
 
-[node name="DangerObject" parent="Level/Danger" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
+[node name="DangerObject" parent="Level/Dangers/Danger" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
+position = Vector2(9.47701, 0)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
-[node name="Begin" type="Marker2D" parent="Level/Danger"]
+[node name="Begin" type="Marker2D" parent="Level/Dangers/Danger"]
 
-[node name="End" type="Marker2D" parent="Level/Danger"]
+[node name="End" type="Marker2D" parent="Level/Dangers/Danger"]
 position = Vector2(83, 0)
 
+[node name="Danger2" type="Node2D" parent="Level/Dangers"]
+position = Vector2(26, 37)
+
+[node name="DangerObject" parent="Level/Dangers/Danger2" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
+position = Vector2(33.0009, 0)
+begin_position = NodePath("../Begin")
+end_position = NodePath("../End")
+
+[node name="Begin" type="Marker2D" parent="Level/Dangers/Danger2"]
+
+[node name="End" type="Marker2D" parent="Level/Dangers/Danger2"]
+position = Vector2(80, 0)
+
+[node name="PowerUp" parent="Level" instance=ExtResource("5_wqrsc")]
+position = Vector2(47, -59)
+
 [node name="Player" parent="." instance=ExtResource("2_177vh")]
+position = Vector2(0, 2)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="PowerUpTimer" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="collected" from="Level/PowerUp" to="." method="_on_power_up_collected"]
+[connection signal="timeout" from="Timers/PowerUpTimer" to="." method="_on_power_up_timer_timeout"]
