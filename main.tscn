@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://yrbncu3bu7y6"]
+[gd_scene load_steps=38 format=4 uid="uid://yrbncu3bu7y6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7ng31"]
 [ext_resource type="Texture2D" uid="uid://ddhi3buwcvuub" path="res://assets/sprites/14-TileSets/Terrain (32x32).png" id="1_sm6ud"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cbwii1jnv4og" path="res://assets/sprites/14-TileSets/Decorations (32x32).png" id="3_trw4k"]
 [ext_resource type="PackedScene" uid="uid://kvi4djl1fik7" path="res://scenes/slowdown/slow_down.tscn" id="3_vbrni"]
 [ext_resource type="PackedScene" uid="uid://c8h1ph6wm24va" path="res://scenes/danger_object/danger_object.tscn" id="4_kueqr"]
-[ext_resource type="PackedScene" uid="uid://bp23jbpaev1sv" path="res://scenes/power_up/power_up.tscn" id="5_wqrsc"]
+[ext_resource type="PackedScene" uid="uid://chcljdmvkgnnp" path="res://scenes/collectable/collectable.tscn" id="7_v6x83"]
+[ext_resource type="Texture2D" uid="uid://e8qtep5s8wfl" path="res://assets/sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="8_scffc"]
+[ext_resource type="Texture2D" uid="uid://dsk8udcux53cd" path="res://assets/sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="8_tanap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rd7pl"]
 texture = ExtResource("1_sm6ud")
@@ -467,6 +469,148 @@ size = Vector2(92, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mjoi"]
 size = Vector2(28, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4baa"]
+atlas = ExtResource("8_scffc")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw4ma"]
+atlas = ExtResource("8_scffc")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0v8g"]
+atlas = ExtResource("8_scffc")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfe6e"]
+atlas = ExtResource("8_scffc")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3b1j"]
+atlas = ExtResource("8_scffc")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3n45"]
+atlas = ExtResource("8_scffc")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydr27"]
+atlas = ExtResource("8_scffc")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whodd"]
+atlas = ExtResource("8_scffc")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv5pk"]
+atlas = ExtResource("8_scffc")
+region = Rect2(144, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1rar"]
+atlas = ExtResource("8_scffc")
+region = Rect2(162, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6e8t1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4baa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw4ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0v8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfe6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3b1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3n45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydr27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whodd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wv5pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1rar")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8a14"]
+atlas = ExtResource("8_tanap")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psnyr"]
+atlas = ExtResource("8_tanap")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1jyf"]
+atlas = ExtResource("8_tanap")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlpf3"]
+atlas = ExtResource("8_tanap")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rv74"]
+atlas = ExtResource("8_tanap")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iik2w"]
+atlas = ExtResource("8_tanap")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im5cf"]
+atlas = ExtResource("8_tanap")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcclw"]
+atlas = ExtResource("8_tanap")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_avyvn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8a14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psnyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1jyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlpf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rv74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iik2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im5cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcclw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7ng31")
 
@@ -523,7 +667,7 @@ one_way_collision = true
 position = Vector2(102, -28)
 
 [node name="DangerObject" parent="Level/Dangers/Danger" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
-position = Vector2(54.7145, 0)
+position = Vector2(55.7892, 0)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
@@ -536,7 +680,7 @@ position = Vector2(83, 0)
 position = Vector2(26, 37)
 
 [node name="DangerObject" parent="Level/Dangers/Danger2" node_paths=PackedStringArray("begin_position", "end_position") instance=ExtResource("4_kueqr")]
-position = Vector2(28.603, 0)
+position = Vector2(35.5932, 0)
 begin_position = NodePath("../Begin")
 end_position = NodePath("../End")
 
@@ -545,11 +689,16 @@ end_position = NodePath("../End")
 [node name="End" type="Marker2D" parent="Level/Dangers/Danger2"]
 position = Vector2(80, 0)
 
-[node name="PowerUp" parent="Level" instance=ExtResource("5_wqrsc")]
-position = Vector2(47, -59)
+[node name="PowerUp" parent="Level" instance=ExtResource("7_v6x83")]
+position = Vector2(47, -58)
+sprite_frames = SubResource("SpriteFrames_6e8t1")
+
+[node name="VictoryFlag" parent="Level" instance=ExtResource("7_v6x83")]
+position = Vector2(-172, 31)
+sprite_frames = SubResource("SpriteFrames_avyvn")
 
 [node name="Player" parent="." instance=ExtResource("2_177vh")]
-position = Vector2(0, 2)
+position = Vector2(-26, -40)
 
 [node name="Timers" type="Node" parent="."]
 
@@ -557,5 +706,47 @@ position = Vector2(0, 2)
 wait_time = 3.0
 one_shot = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VictoryScreen" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VictoryScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VictoryScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/VictoryScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "YOU WON!"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/VictoryScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESTART"
+
 [connection signal="collected" from="Level/PowerUp" to="." method="_on_power_up_collected"]
+[connection signal="collected" from="Level/VictoryFlag" to="." method="_on_victory_flag_collected"]
 [connection signal="timeout" from="Timers/PowerUpTimer" to="." method="_on_power_up_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/VictoryScreen/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

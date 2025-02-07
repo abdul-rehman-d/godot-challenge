@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://qll6ykmdgxwv"]
+
+[ext_resource type="PackedScene" uid="uid://chcljdmvkgnnp" path="res://scenes/collectable/collectable.tscn" id="1_ekwka"]
+[ext_resource type="Texture2D" uid="uid://dsk8udcux53cd" path="res://assets/sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_mkhjc"]
+
+[sub_resource type="GDScript" id="GDScript_4yc7i"]
+script/source = "extends Node2D
+
+signal collected
+
+func _on_collectable_collected() -> void:
+	collected.emit()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi38s"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gphgj"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(18, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1qy0"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(36, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuuv7"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyepo"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igh20"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxq2m"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a6ef"]
+atlas = ExtResource("2_mkhjc")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n25tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi38s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gphgj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1qy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuuv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyepo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igh20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxq2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a6ef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="VictoryFlag" type="Node2D"]
+script = SubResource("GDScript_4yc7i")
+
+[node name="Collectable" parent="." instance=ExtResource("1_ekwka")]
+sprite_frames = SubResource("SpriteFrames_n25tg")
+
+[connection signal="collected" from="Collectable" to="." method="_on_collectable_collected"]
