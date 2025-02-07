@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cij1prqjgcjf3"]
+[gd_scene load_steps=34 format=3 uid="uid://cij1prqjgcjf3"]
 
 [ext_resource type="Texture2D" uid="uid://dxnnd7q3ti5ik" path="res://assets/sprites/03-Pig/Idle (34x28).png" id="1_ciqyd"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gmdyt"]
@@ -193,14 +193,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_vn4p1"]
+_data = [Vector2(0.00666666, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_10kby"]
+curve = SubResource("Curve_vn4p1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r5hp6"]
+particle_flag_disable_z = true
+gravity = Vector3(10, 0, 0)
+scale_min = 1.5
+scale_max = 3.0
+alpha_curve = SubResource("CurveTexture_10kby")
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_gmdyt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a5qlk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-3, -4)
 sprite_frames = SubResource("SpriteFrames_nrrx5")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="RunningParticles" type="GPUParticles2D" parent="."]
+position = Vector2(5, 9)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_r5hp6")
+lifetime = 0.8
