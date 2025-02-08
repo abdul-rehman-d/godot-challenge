@@ -226,3 +226,5 @@ position = Vector2(5, 9)
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_r5hp6")
 lifetime = 0.8
+
+[node name="Camera2D" type="Camera2D" parent="."]
