@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var level_container: Node2D = $Level
+@onready var power_up_audio: AudioStreamPlayer2D = $Audio/PowerUpAudio
+@onready var victory_audio: AudioStreamPlayer2D = $Audio/VictoryAudio
 
 func _ready() -> void:
 	load_level(0)
@@ -18,6 +20,7 @@ func load_level(level: int) -> void:
 
 
 func _on_power_up_collected() -> void:
+	power_up_audio.play()
 	for danger in get_tree().get_nodes_in_group("DangerObject"):
 		if danger is DangerObject:
 			danger.is_moving = false
@@ -36,6 +39,7 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_victory_flag_collected() -> void:
+	victory_audio.play()
 	Engine.time_scale = 0.0
 	$CanvasLayer/VictoryScreen.show()
 

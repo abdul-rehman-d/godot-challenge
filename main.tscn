@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://yrbncu3bu7y6"]
+[gd_scene load_steps=4 format=3 uid="uid://yrbncu3bu7y6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7ng31"]
+[ext_resource type="AudioStream" uid="uid://bykffvvvexbu2" path="res://assets/audio/powerUp8.ogg" id="2_ybvw6"]
+[ext_resource type="AudioStream" uid="uid://ci7slurab4ioh" path="res://assets/audio/powerUp3.ogg" id="3_my8dg"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7ng31")
@@ -52,6 +54,14 @@ text = "YOU WON!"
 [node name="RestartButton" type="Button" parent="CanvasLayer/VictoryScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "RESTART"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="PowerUpAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("2_ybvw6")
+
+[node name="VictoryAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_my8dg")
 
 [connection signal="timeout" from="Timers/PowerUpTimer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/VictoryScreen/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

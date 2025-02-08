@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var gpu_particles: GPUParticles2D = $RunningParticles
+@onready var jump_audio: AudioStreamPlayer2D = $JumpAudio
 
 
 func _physics_process(delta: float) -> void:
@@ -29,6 +30,7 @@ func handle_gravity(delta: float) -> void:
 func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_velocity
+		jump_audio.play()
 	if Input.is_action_just_released("jump"):
 		if velocity.y < -short_jump_velocity:
 			velocity.y = -short_jump_velocity

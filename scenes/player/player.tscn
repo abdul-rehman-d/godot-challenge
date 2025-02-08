@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cij1prqjgcjf3"]
+[gd_scene load_steps=35 format=3 uid="uid://cij1prqjgcjf3"]
 
 [ext_resource type="Texture2D" uid="uid://dxnnd7q3ti5ik" path="res://assets/sprites/03-Pig/Idle (34x28).png" id="1_ciqyd"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_gmdyt"]
 [ext_resource type="Texture2D" uid="uid://ba2ta2uhi31ko" path="res://assets/sprites/03-Pig/Attack (34x28).png" id="2_m52xw"]
 [ext_resource type="Texture2D" uid="uid://brfi1qua0g5b4" path="res://assets/sprites/03-Pig/Jump (34x28).png" id="4_biu34"]
 [ext_resource type="Texture2D" uid="uid://brnso4ndrn3c0" path="res://assets/sprites/03-Pig/Run (34x28).png" id="4_ctans"]
+[ext_resource type="AudioStream" uid="uid://cgfqd8wherdiv" path="res://assets/audio/phaseJump1.ogg" id="6_3u1iw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5qlk"]
 radius = 11.0
@@ -228,3 +229,9 @@ process_material = SubResource("ParticleProcessMaterial_r5hp6")
 lifetime = 0.8
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3u1iw")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
